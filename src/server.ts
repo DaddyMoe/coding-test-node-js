@@ -1,16 +1,6 @@
-const express = require("express");
-const app = express();
-const db = require("./database.ts");
-const postRouter = require("./routers/post");
+import App from './src/app';
+import PostsController from './controllers/post.controller';
 
-const port = process.env.PORT || 3030;
+const app = new App([new PostsController()], 5000);
 
-app.use(express.json());
-app.use(postRouter);
-
-app.listen(port, () => {
-    console.log("Serveris runnig on port " + port)
-})
-// app.use(function(req, res){
-//     res.status(404);
-// });
+app.listen();

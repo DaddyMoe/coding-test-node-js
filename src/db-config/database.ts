@@ -2,10 +2,10 @@ const sqlite3 = require('sqlite3').verbose()
 
 const DB_SOURCE = "db.sqlite"
 
-let db = new sqlite3.Database(DB_SOURCE, (err) => {
+let db = new sqlite3.Database(DB_SOURCE, (err: any) => {
     if (err) {
       // Cannot open database
-      console.error(err.message)
+      console.error(err.message as string)
       throw err
     }else{
         console.log('Connected to the SQLite database.')
@@ -15,7 +15,7 @@ let db = new sqlite3.Database(DB_SOURCE, (err) => {
             content text, 
             CONSTRAINT title_unique UNIQUE (title)
             )`,
-        (err) => {
+        (err: any) => {
             if (err) {
                 // Table already created
             }else{
