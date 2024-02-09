@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  post-manage-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: post-manage-api
+    expose:
+      - '4000'
+    ports:
+      - '4000:4000'
+    command: npm run start:dev

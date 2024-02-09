@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  post-manage-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+      
+    container_name: post-manage-api
+    expose:
+      - '4000'
+    ports:
+      - '4000:4000'
