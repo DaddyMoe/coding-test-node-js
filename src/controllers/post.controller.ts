@@ -26,10 +26,14 @@ class PostsController {
     }
   }
 
-  createAPost = (request: Request, response: Response) => {
+  createAPost = async (request: Request, response: Response) => {
     const post: Post = request.body;
-    // this.posts.push(post);
-    response.send(post);
+    try {
+      let res = await this.srvPost.createPost(post);
+      response.send(res);
+    } catch (err) {
+      response.send(err);
+    }
   }
 }
 

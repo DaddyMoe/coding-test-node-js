@@ -1,5 +1,5 @@
 export default interface Post {
-    author: string;
+    id?: number;
     content: string;
     title: string;
 };
