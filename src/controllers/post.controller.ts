@@ -20,7 +20,7 @@ class PostsController {
   getAllPosts = async (request: Request, response: Response) => {
     try {
       let res = await this.srvPost.getAllPosts(request);
-      response.send(res).sendStatus(200);
+      response.send(res);
     } catch (err) {
       response.send(err);
     }
@@ -30,7 +30,7 @@ class PostsController {
     const post: Post = request.body;
     try {
       let res = await this.srvPost.createPost(post);
-      response.send(res).sendStatus(201);;
+      response.send(res);;
     } catch (err) {
       response.send(err);
     }
