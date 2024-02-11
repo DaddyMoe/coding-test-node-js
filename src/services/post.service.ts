@@ -32,4 +32,31 @@ export default class PostsService {
             })
         })
     }
+
+
+    public async updatePost(params: Post) {
+        var insertQuery = 'UPDATE INTO post (title, content) VALUES (?,?)'
+        const { title, content } = params;
+        // return new Promise((resolve, reject) => {
+        //     db.run(insertQuery, [title, content], function (err: { message: any; }) {
+        //         if (err) {
+        //             reject(err.message);
+        //         }
+        //         resolve("done");
+        //     })
+        // })
+    }
+
+    public async deletePost(params: Post) {
+        var insertQuery = 'INSERT INTO post (title, content) VALUES (?,?)'
+        const { title, content } = params;
+        // return new Promise((resolve, reject) => {
+        //     db.run(insertQuery, [title, content], function (err: { message: any; }) {
+        //         if (err) {
+        //             reject(err.message);
+        //         }
+        //         resolve("done");
+        //     })
+        // })
+    }
 }

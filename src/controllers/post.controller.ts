@@ -15,6 +15,8 @@ class PostsController {
   public intializeRoutes() {
     this.router.get(this.path, this.getAllPosts);
     this.router.post(this.path, this.createAPost);
+    this.router.delete(this.path, this.deleteAPost);
+    this.router.patch(this.path, this.updatePost);
   }
 
   getAllPosts = async (request: Request, response: Response) => {
@@ -27,6 +29,26 @@ class PostsController {
   }
 
   createAPost = async (request: Request, response: Response) => {
+    const post: Post = request.body;
+    try {
+      let res = await this.srvPost.createPost(post);
+      response.send(res);;
+    } catch (err) {
+      response.send(err);
+    }
+  }
+
+  deleteAPost = async (request: Request, response: Response) => {
+    const post: Post = request.body;
+    try {
+      let res = await this.srvPost.createPost(post);
+      response.send(res);;
+    } catch (err) {
+      response.send(err);
+    }
+  }
+
+  updatePost = async (request: Request, response: Response) => {
     const post: Post = request.body;
     try {
       let res = await this.srvPost.createPost(post);
