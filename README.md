@@ -24,11 +24,8 @@ This is a sample application for post management using Nodejs Express server and
 # Dependency versions
 
 | Nodejs | v18.14.2 |
-| :---: | :---: |
-TypeScript | ^5.3.3 |
-| :--- | :---: |
-express | ^4.18.2 |
-| :---: | :---: |
+| TypeScript | ^5.3.3 |
+| express | ^4.18.2 |
 | sqlite3 | ^5.1.7 |
 
 # Application usage:
