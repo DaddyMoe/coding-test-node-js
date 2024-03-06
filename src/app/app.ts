@@ -1,10 +1,13 @@
 
 import express from 'express';
 import * as bodyParser from 'body-parser';
+import cors from 'cors';
  
 class App {
   public app: express.Application;
   public port: number;
+
+  public allowedOrigins = ['http://localhost:4200'];
  
   constructor(controllers: any, port: number) {
     this.app = express();
@@ -16,6 +19,11 @@ class App {
  
   private initializeMiddlewares() {
     this.app.use(bodyParser.json());
+
+    const options: cors.CorsOptions = {
+      origin: this.allowedOrigins
+    };
+    this.app.use(cors(options));
   }
  
   private initializeControllers(controllers: any) {

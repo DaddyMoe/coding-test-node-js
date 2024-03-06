@@ -25,6 +25,24 @@ let db = new sqlite3.Database(DB_SOURCE, (err: any) => {
                 db.run(insert, ["Another Post","content"])
             }
         });
+
+        db.run(`CREATE TABLE users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name text, 
+            email text UNIQUE,
+            tokens text [],
+            CONSTRAINT email_unique UNIQUE (email)
+            )`,
+        (err: any) => {
+            if (err) {
+                // Table already created
+            }else{
+                // Table just created, creating some rows
+                // var insert = 'INSERT INTO post (title, content) VALUES (?,?)'
+                // db.run(insert, ["Post","content"])
+                // db.run(insert, ["Another Post","content"])
+            }
+        });
     }
 });
 
